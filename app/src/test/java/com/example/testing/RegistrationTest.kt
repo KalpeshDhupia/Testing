@@ -7,7 +7,7 @@ class RegistrationTest {
 
     @Test
     fun emptyUsername() {
-        val result = Registration.validInput("", "123456", "123456")
+        val result = Registration.validUsername("")
         assertThat(result).isFalse()
     }
 
@@ -19,19 +19,19 @@ class RegistrationTest {
 
     @Test
     fun usernameExist(){
-        val result = Registration.validInput("kalpesh","123456","123456")
+        val result = Registration.validUsername("kalpesh")
         assertThat(result).isTrue()
     }
 
     @Test
     fun incorrectCnfPassword(){
-        val result =  Registration.validInput("Om","123456","234567")
+        val result =  Registration.validPassword("123456","34568999")
         assertThat(result).isFalse()
     }
 
     @Test
     fun passwordLength(){
-        val result = Registration.validInput("Ramesh","1234","1234")
+        val result = Registration.validPassword("1234","2345")
         assertThat(result).isFalse()
     }
 }
